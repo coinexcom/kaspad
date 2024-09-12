@@ -4,11 +4,11 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/kaspanet/kaspad/infrastructure/config"
-	"github.com/kaspanet/kaspad/infrastructure/network/netadapter/standalone"
-	"github.com/kaspanet/kaspad/stability-tests/common"
-	"github.com/kaspanet/kaspad/util/panics"
-	"github.com/kaspanet/kaspad/util/profiling"
+	"github.com/coinexcom/kaspad/infrastructure/config"
+	"github.com/coinexcom/kaspad/infrastructure/network/netadapter/standalone"
+	"github.com/coinexcom/kaspad/stability-tests/common"
+	"github.com/coinexcom/kaspad/util/panics"
+	"github.com/coinexcom/kaspad/util/profiling"
 )
 
 func main() {

@@ -1,9 +1,9 @@
 package difficultymanager
 
 import (
-	"github.com/kaspanet/kaspad/domain/consensus/model"
-	"github.com/kaspanet/kaspad/domain/consensus/model/externalapi"
-	"github.com/kaspanet/kaspad/util/difficulty"
+	"github.com/coinexcom/kaspad/domain/consensus/model"
+	"github.com/coinexcom/kaspad/domain/consensus/model/externalapi"
+	"github.com/coinexcom/kaspad/util/difficulty"
 	"math"
 	"math/big"
 )

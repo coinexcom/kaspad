@@ -1,8 +1,8 @@
 package rpc
 
 import (
-	"github.com/kaspanet/kaspad/infrastructure/logger"
-	"github.com/kaspanet/kaspad/util/panics"
+	"github.com/coinexcom/kaspad/infrastructure/logger"
+	"github.com/coinexcom/kaspad/util/panics"
 )
 
 var log = logger.RegisterSubSystem("RPCS")

@@ -7,9 +7,9 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/kaspanet/kaspad/stability-tests/common"
-	"github.com/kaspanet/kaspad/stability-tests/common/rpc"
-	"github.com/kaspanet/kaspad/util/profiling"
+	"github.com/coinexcom/kaspad/stability-tests/common"
+	"github.com/coinexcom/kaspad/stability-tests/common/rpc"
+	"github.com/coinexcom/kaspad/util/profiling"
 )
 
 var timeout = 30 * time.Second

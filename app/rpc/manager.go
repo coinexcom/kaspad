@@ -1,17 +1,17 @@
 package rpc
 
 import (
-	"github.com/kaspanet/kaspad/app/appmessage"
-	"github.com/kaspanet/kaspad/app/protocol"
-	"github.com/kaspanet/kaspad/app/rpc/rpccontext"
-	"github.com/kaspanet/kaspad/domain"
-	"github.com/kaspanet/kaspad/domain/consensus/model/externalapi"
-	"github.com/kaspanet/kaspad/domain/utxoindex"
-	"github.com/kaspanet/kaspad/infrastructure/config"
-	"github.com/kaspanet/kaspad/infrastructure/logger"
-	"github.com/kaspanet/kaspad/infrastructure/network/addressmanager"
-	"github.com/kaspanet/kaspad/infrastructure/network/connmanager"
-	"github.com/kaspanet/kaspad/infrastructure/network/netadapter"
+	"github.com/coinexcom/kaspad/app/appmessage"
+	"github.com/coinexcom/kaspad/app/protocol"
+	"github.com/coinexcom/kaspad/app/rpc/rpccontext"
+	"github.com/coinexcom/kaspad/domain"
+	"github.com/coinexcom/kaspad/domain/consensus/model/externalapi"
+	"github.com/coinexcom/kaspad/domain/utxoindex"
+	"github.com/coinexcom/kaspad/infrastructure/config"
+	"github.com/coinexcom/kaspad/infrastructure/logger"
+	"github.com/coinexcom/kaspad/infrastructure/network/addressmanager"
+	"github.com/coinexcom/kaspad/infrastructure/network/connmanager"
+	"github.com/coinexcom/kaspad/infrastructure/network/netadapter"
 	"github.com/pkg/errors"
 )
 

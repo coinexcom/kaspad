@@ -1,12 +1,12 @@
 package main
 
 import (
-	"github.com/kaspanet/kaspad/domain/consensus"
-	"github.com/kaspanet/kaspad/domain/consensus/model/externalapi"
-	"github.com/kaspanet/kaspad/domain/consensus/utils/consensushashing"
-	"github.com/kaspanet/kaspad/infrastructure/db/database/ldb"
-	"github.com/kaspanet/kaspad/stability-tests/common"
-	"github.com/kaspanet/kaspad/stability-tests/common/mine"
+	"github.com/coinexcom/kaspad/domain/consensus"
+	"github.com/coinexcom/kaspad/domain/consensus/model/externalapi"
+	"github.com/coinexcom/kaspad/domain/consensus/utils/consensushashing"
+	"github.com/coinexcom/kaspad/infrastructure/db/database/ldb"
+	"github.com/coinexcom/kaspad/stability-tests/common"
+	"github.com/coinexcom/kaspad/stability-tests/common/mine"
 	"github.com/pkg/errors"
 )
 

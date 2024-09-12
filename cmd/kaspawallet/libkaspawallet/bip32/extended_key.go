@@ -1,15 +1,13 @@
 package bip32
 
 import (
-	"github.com/btcsuite/btcutil/base58"
-	"github.com/kaspanet/go-secp256k1"
 	"github.com/pkg/errors"
 )
 
 // ExtendedKey is a bip32 extended key
 type ExtendedKey struct {
-	privateKey        *secp256k1.ECDSAPrivateKey
-	publicKey         *secp256k1.ECDSAPublicKey
+	privateKey        interface{}
+	publicKey         interface{}
 	Version           [4]byte
 	Depth             uint8
 	ParentFingerprint [4]byte
@@ -18,23 +16,13 @@ type ExtendedKey struct {
 }
 
 // PrivateKey returns the ECDSA private key associated with the extended key
-func (extKey *ExtendedKey) PrivateKey() *secp256k1.ECDSAPrivateKey {
+func (extKey *ExtendedKey) PrivateKey() interface{} {
 	return extKey.privateKey
 }
 
 // PublicKey returns the ECDSA public key associated with the extended key
-func (extKey *ExtendedKey) PublicKey() (*secp256k1.ECDSAPublicKey, error) {
-	if extKey.publicKey != nil {
-		return extKey.publicKey, nil
-	}
-
-	publicKey, err := extKey.privateKey.ECDSAPublicKey()
-	if err != nil {
-		return nil, err
-	}
-
-	extKey.publicKey = publicKey
-	return publicKey, nil
+func (extKey *ExtendedKey) PublicKey() (interface{}, error) {
+	return nil, errors.New("fail")
 }
 
 // IsPrivate returns whether the extended key is private
@@ -96,9 +84,5 @@ func (extKey *ExtendedKey) path(path *path) (*ExtendedKey, error) {
 }
 
 func (extKey *ExtendedKey) String() string {
-	serialized, err := extKey.serialize()
-	if err != nil {
-		panic(errors.Wrap(err, "error serializing key"))
-	}
-	return base58.Encode(serialized)
+	panic("error serializing key")
 }

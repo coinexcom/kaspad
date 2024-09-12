@@ -3,10 +3,10 @@ package server
 import (
 	"context"
 
-	"github.com/kaspanet/kaspad/app/appmessage"
-	"github.com/kaspanet/kaspad/cmd/kaspawallet/daemon/pb"
-	"github.com/kaspanet/kaspad/cmd/kaspawallet/libkaspawallet"
-	"github.com/kaspanet/kaspad/util"
+	"github.com/coinexcom/kaspad/app/appmessage"
+	"github.com/coinexcom/kaspad/cmd/kaspawallet/daemon/pb"
+	"github.com/coinexcom/kaspad/cmd/kaspawallet/libkaspawallet"
+	"github.com/coinexcom/kaspad/util"
 )
 
 func (s *server) GetExternalSpendableUTXOs(_ context.Context, request *pb.GetExternalSpendableUTXOsRequest) (*pb.GetExternalSpendableUTXOsResponse, error) {

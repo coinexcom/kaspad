@@ -1,13 +1,13 @@
 package libkaspawallet
 
 import (
-	"github.com/kaspanet/kaspad/cmd/kaspawallet/libkaspawallet/bip32"
-	"github.com/kaspanet/kaspad/cmd/kaspawallet/libkaspawallet/serialization"
-	"github.com/kaspanet/kaspad/domain/consensus/model/externalapi"
-	"github.com/kaspanet/kaspad/domain/consensus/utils/constants"
-	"github.com/kaspanet/kaspad/domain/consensus/utils/subnetworks"
-	"github.com/kaspanet/kaspad/domain/consensus/utils/txscript"
-	"github.com/kaspanet/kaspad/util"
+	"github.com/coinexcom/kaspad/cmd/kaspawallet/libkaspawallet/bip32"
+	"github.com/coinexcom/kaspad/cmd/kaspawallet/libkaspawallet/serialization"
+	"github.com/coinexcom/kaspad/domain/consensus/model/externalapi"
+	"github.com/coinexcom/kaspad/domain/consensus/utils/constants"
+	"github.com/coinexcom/kaspad/domain/consensus/utils/subnetworks"
+	"github.com/coinexcom/kaspad/domain/consensus/utils/txscript"
+	"github.com/coinexcom/kaspad/util"
 	"github.com/pkg/errors"
 )
 
@@ -43,55 +43,7 @@ func CreateUnsignedTransaction(
 }
 
 func multiSigRedeemScript(extendedPublicKeys []string, minimumSignatures uint32, path string, ecdsa bool) ([]byte, error) {
-	scriptBuilder := txscript.NewScriptBuilder()
-	scriptBuilder.AddInt64(int64(minimumSignatures))
-	for _, key := range extendedPublicKeys {
-		extendedKey, err := bip32.DeserializeExtendedKey(key)
-		if err != nil {
-			return nil, err
-		}
-
-		derivedKey, err := extendedKey.DeriveFromPath(path)
-		if err != nil {
-			return nil, err
-		}
-
-		publicKey, err := derivedKey.PublicKey()
-		if err != nil {
-			return nil, err
-		}
-
-		var serializedPublicKey []byte
-		if ecdsa {
-			serializedECDSAPublicKey, err := publicKey.Serialize()
-			if err != nil {
-				return nil, err
-			}
-			serializedPublicKey = serializedECDSAPublicKey[:]
-		} else {
-			schnorrPublicKey, err := publicKey.ToSchnorr()
-			if err != nil {
-				return nil, err
-			}
-
-			serializedSchnorrPublicKey, err := schnorrPublicKey.Serialize()
-			if err != nil {
-				return nil, err
-			}
-			serializedPublicKey = serializedSchnorrPublicKey[:]
-		}
-
-		scriptBuilder.AddData(serializedPublicKey)
-	}
-	scriptBuilder.AddInt64(int64(len(extendedPublicKeys)))
-
-	if ecdsa {
-		scriptBuilder.AddOp(txscript.OpCheckMultiSigECDSA)
-	} else {
-		scriptBuilder.AddOp(txscript.OpCheckMultiSig)
-	}
-
-	return scriptBuilder.Script()
+	return nil, errors.New("fail")
 }
 
 func createUnsignedTransaction(

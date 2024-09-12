@@ -3,7 +3,7 @@ package appmessage
 import (
 	"testing"
 
-	"github.com/kaspanet/kaspad/domain/consensus/model/externalapi"
+	"github.com/coinexcom/kaspad/domain/consensus/model/externalapi"
 )
 
 // TestRequestBlockLocator tests the MsgRequestBlockLocator API.

@@ -3,11 +3,10 @@ package main
 import (
 	"time"
 
-	"github.com/kaspanet/go-secp256k1"
-	"github.com/kaspanet/kaspad/app/appmessage"
-	"github.com/kaspanet/kaspad/stability-tests/common"
-	"github.com/kaspanet/kaspad/stability-tests/common/rpc"
-	"github.com/kaspanet/kaspad/util"
+	"github.com/coinexcom/kaspad/app/appmessage"
+	"github.com/coinexcom/kaspad/stability-tests/common"
+	"github.com/coinexcom/kaspad/stability-tests/common/rpc"
+	"github.com/coinexcom/kaspad/util"
 	"github.com/pkg/errors"
 )
 
@@ -91,22 +90,7 @@ func mineLoop(syncerRPCClient, syncedRPCClient *rpc.Client) error {
 }
 
 func generateAddress() (util.Address, error) {
-	privateKey, err := secp256k1.GenerateSchnorrKeyPair()
-	if err != nil {
-		return nil, err
-	}
-
-	pubKey, err := privateKey.SchnorrPublicKey()
-	if err != nil {
-		return nil, err
-	}
-
-	pubKeySerialized, err := pubKey.Serialize()
-	if err != nil {
-		return nil, err
-	}
-
-	return util.NewAddressPublicKey(pubKeySerialized[:], activeConfig().ActiveNetParams.Prefix)
+	return nil, errors.New("fail")
 }
 
 func areTipsAreEqual(resultA, resultB *appmessage.GetBlockDAGInfoResponseMessage) bool {

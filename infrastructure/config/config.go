@@ -17,13 +17,13 @@ import (
 	"time"
 
 	"github.com/btcsuite/go-socks/socks"
+	"github.com/coinexcom/kaspad/domain/consensus/model/externalapi"
+	"github.com/coinexcom/kaspad/domain/dagconfig"
+	"github.com/coinexcom/kaspad/infrastructure/logger"
+	"github.com/coinexcom/kaspad/util"
+	"github.com/coinexcom/kaspad/util/network"
+	"github.com/coinexcom/kaspad/version"
 	"github.com/jessevdk/go-flags"
-	"github.com/kaspanet/kaspad/domain/consensus/model/externalapi"
-	"github.com/kaspanet/kaspad/domain/dagconfig"
-	"github.com/kaspanet/kaspad/infrastructure/logger"
-	"github.com/kaspanet/kaspad/util"
-	"github.com/kaspanet/kaspad/util/network"
-	"github.com/kaspanet/kaspad/version"
 	"github.com/pkg/errors"
 )
 

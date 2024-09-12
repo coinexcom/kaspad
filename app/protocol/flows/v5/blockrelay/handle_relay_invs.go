@@ -1,19 +1,19 @@
 package blockrelay
 
 import (
-	"github.com/kaspanet/kaspad/app/appmessage"
-	"github.com/kaspanet/kaspad/app/protocol/common"
-	"github.com/kaspanet/kaspad/app/protocol/flowcontext"
-	peerpkg "github.com/kaspanet/kaspad/app/protocol/peer"
-	"github.com/kaspanet/kaspad/app/protocol/protocolerrors"
-	"github.com/kaspanet/kaspad/domain"
-	"github.com/kaspanet/kaspad/domain/consensus/model"
-	"github.com/kaspanet/kaspad/domain/consensus/model/externalapi"
-	"github.com/kaspanet/kaspad/domain/consensus/ruleerrors"
-	"github.com/kaspanet/kaspad/domain/consensus/utils/consensushashing"
-	"github.com/kaspanet/kaspad/domain/consensus/utils/hashset"
-	"github.com/kaspanet/kaspad/infrastructure/config"
-	"github.com/kaspanet/kaspad/infrastructure/network/netadapter/router"
+	"github.com/coinexcom/kaspad/app/appmessage"
+	"github.com/coinexcom/kaspad/app/protocol/common"
+	"github.com/coinexcom/kaspad/app/protocol/flowcontext"
+	peerpkg "github.com/coinexcom/kaspad/app/protocol/peer"
+	"github.com/coinexcom/kaspad/app/protocol/protocolerrors"
+	"github.com/coinexcom/kaspad/domain"
+	"github.com/coinexcom/kaspad/domain/consensus/model"
+	"github.com/coinexcom/kaspad/domain/consensus/model/externalapi"
+	"github.com/coinexcom/kaspad/domain/consensus/ruleerrors"
+	"github.com/coinexcom/kaspad/domain/consensus/utils/consensushashing"
+	"github.com/coinexcom/kaspad/domain/consensus/utils/hashset"
+	"github.com/coinexcom/kaspad/infrastructure/config"
+	"github.com/coinexcom/kaspad/infrastructure/network/netadapter/router"
 	"github.com/pkg/errors"
 )
 

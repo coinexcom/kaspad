@@ -4,9 +4,22 @@
 
 package txscript
 
-import (
-	"github.com/kaspanet/go-secp256k1"
+const (
+	// SerializedSchnorrSignatureSize defines the length in bytes of SerializedSchnorrSignature
+	SerializedSchnorrSignatureSize = 64
 )
+
+// SchnorrSignature is a type representing a Schnorr Signature.
+// The struct itself is an opaque data type that should only be created via the supplied methods.
+type SchnorrSignature struct {
+	signature [SerializedSchnorrSignatureSize]byte
+}
+
+// SchnorrPublicKey is a PublicKey type used to sign and verify Schnorr signatures.
+// The struct itself is an opaque data type that should only be created via the supplied methods.
+type SchnorrPublicKey struct {
+	init bool
+}
 
 // sigCacheEntry represents an entry in the SigCache. Entries within the
 // SigCache are keyed according to the sigHash of the signature. In the
@@ -15,8 +28,8 @@ import (
 // match. In the occasion that two sigHashes collide, the newer sigHash will
 // simply overwrite the existing entry.
 type sigCacheEntry struct {
-	sig    *secp256k1.SchnorrSignature
-	pubKey *secp256k1.SchnorrPublicKey
+	sig    *SchnorrSignature
+	pubKey *SchnorrPublicKey
 }
 
 // SigCache implements an Schnorr signature verification cache with a randomized
@@ -30,7 +43,7 @@ type sigCacheEntry struct {
 // optimization which speeds up the validation of transactions within a block,
 // if they've already been seen and verified within the mempool.
 type SigCache struct {
-	validSigs  map[secp256k1.Hash]sigCacheEntry
+	validSigs  map[interface{}]sigCacheEntry
 	maxEntries uint
 }
 
@@ -41,7 +54,7 @@ type SigCache struct {
 // cache to exceed the max.
 func NewSigCache(maxEntries uint) *SigCache {
 	return &SigCache{
-		validSigs:  make(map[secp256k1.Hash]sigCacheEntry, maxEntries),
+		validSigs:  make(map[interface{}]sigCacheEntry, maxEntries),
 		maxEntries: maxEntries,
 	}
 }
@@ -51,10 +64,8 @@ func NewSigCache(maxEntries uint) *SigCache {
 //
 // NOTE: This function is safe for concurrent access. Readers won't be blocked
 // unless there exists a writer, adding an entry to the SigCache.
-func (s *SigCache) Exists(sigHash secp256k1.Hash, sig *secp256k1.SchnorrSignature, pubKey *secp256k1.SchnorrPublicKey) bool {
-	entry, ok := s.validSigs[sigHash]
-
-	return ok && entry.pubKey.IsEqual(pubKey) && entry.sig.IsEqual(sig)
+func (s *SigCache) Exists(sigHash, sig, pubKey interface{}) bool {
+	return false
 }
 
 // Add adds an entry for a signature over 'sigHash' under public key 'pubKey'
@@ -64,27 +75,5 @@ func (s *SigCache) Exists(sigHash secp256k1.Hash, sig *secp256k1.SchnorrSignatur
 //
 // NOTE: This function is safe for concurrent access. Writers will block
 // simultaneous readers until function execution has concluded.
-func (s *SigCache) Add(sigHash secp256k1.Hash, sig *secp256k1.SchnorrSignature, pubKey *secp256k1.SchnorrPublicKey) {
-	if s.maxEntries == 0 {
-		return
-	}
-
-	// If adding this new entry will put us over the max number of allowed
-	// entries, then evict an entry.
-	if uint(len(s.validSigs)+1) > s.maxEntries {
-		// Remove a random entry from the map. Relying on the random
-		// starting point of Go's map iteration. It's worth noting that
-		// the random iteration starting point is not 100% guaranteed
-		// by the spec, however most Go compilers support it.
-		// Ultimately, the iteration order isn't important here because
-		// in order to manipulate which items are evicted, an adversary
-		// would need to be able to execute preimage attacks on the
-		// hashing function in order to start eviction at a specific
-		// entry.
-		for sigEntry := range s.validSigs {
-			delete(s.validSigs, sigEntry)
-			break
-		}
-	}
-	s.validSigs[sigHash] = sigCacheEntry{sig, pubKey}
+func (s *SigCache) Add(sigHash, sig, pubKey interface{}) {
 }

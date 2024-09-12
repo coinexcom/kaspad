@@ -1,10 +1,10 @@
 package transactionvalidator
 
 import (
-	"github.com/kaspanet/kaspad/domain/consensus/model"
-	"github.com/kaspanet/kaspad/domain/consensus/model/externalapi"
-	"github.com/kaspanet/kaspad/domain/consensus/utils/txscript"
-	"github.com/kaspanet/kaspad/util/txmass"
+	"github.com/coinexcom/kaspad/domain/consensus/model"
+	"github.com/coinexcom/kaspad/domain/consensus/model/externalapi"
+	"github.com/coinexcom/kaspad/domain/consensus/utils/txscript"
+	"github.com/coinexcom/kaspad/util/txmass"
 )
 
 const sigCacheSize = 10_000
@@ -49,7 +49,6 @@ func New(blockCoinbaseMaturity uint64,
 		ghostdagDataStore:                       ghostdagDataStore,
 		daaBlocksStore:                          daaBlocksStore,
 		sigCache:                                txscript.NewSigCache(sigCacheSize),
-		sigCacheECDSA:                           txscript.NewSigCacheECDSA(sigCacheSize),
 		txMassCalculator:                        txMassCalculator,
 	}
 }

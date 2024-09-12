@@ -1,11 +1,11 @@
 package flowcontext
 
 import (
-	"github.com/kaspanet/kaspad/app/appmessage"
-	"github.com/kaspanet/kaspad/app/protocol/common"
-	peerpkg "github.com/kaspanet/kaspad/app/protocol/peer"
-	"github.com/kaspanet/kaspad/infrastructure/network/connmanager"
-	"github.com/kaspanet/kaspad/infrastructure/network/netadapter"
+	"github.com/coinexcom/kaspad/app/appmessage"
+	"github.com/coinexcom/kaspad/app/protocol/common"
+	peerpkg "github.com/coinexcom/kaspad/app/protocol/peer"
+	"github.com/coinexcom/kaspad/infrastructure/network/connmanager"
+	"github.com/coinexcom/kaspad/infrastructure/network/netadapter"
 	"github.com/pkg/errors"
 )
 

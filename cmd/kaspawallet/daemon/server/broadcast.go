@@ -4,13 +4,13 @@ import (
 	"context"
 	"time"
 
-	"github.com/kaspanet/kaspad/app/appmessage"
-	"github.com/kaspanet/kaspad/cmd/kaspawallet/daemon/pb"
-	"github.com/kaspanet/kaspad/cmd/kaspawallet/libkaspawallet"
-	"github.com/kaspanet/kaspad/cmd/kaspawallet/libkaspawallet/serialization"
-	"github.com/kaspanet/kaspad/domain/consensus/model/externalapi"
-	"github.com/kaspanet/kaspad/domain/consensus/utils/consensushashing"
-	"github.com/kaspanet/kaspad/infrastructure/network/rpcclient"
+	"github.com/coinexcom/kaspad/app/appmessage"
+	"github.com/coinexcom/kaspad/cmd/kaspawallet/daemon/pb"
+	"github.com/coinexcom/kaspad/cmd/kaspawallet/libkaspawallet"
+	"github.com/coinexcom/kaspad/cmd/kaspawallet/libkaspawallet/serialization"
+	"github.com/coinexcom/kaspad/domain/consensus/model/externalapi"
+	"github.com/coinexcom/kaspad/domain/consensus/utils/consensushashing"
+	"github.com/coinexcom/kaspad/infrastructure/network/rpcclient"
 	"github.com/pkg/errors"
 )
 

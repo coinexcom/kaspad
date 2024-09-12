@@ -1,18 +1,18 @@
 package blockvalidator_test
 
 import (
-	"github.com/kaspanet/kaspad/domain/consensus/model/testapi"
+	"github.com/coinexcom/kaspad/domain/consensus/model/testapi"
 	"reflect"
 	"runtime"
 	"testing"
 
-	"github.com/kaspanet/kaspad/domain/consensus"
-	"github.com/kaspanet/kaspad/domain/consensus/model/externalapi"
-	"github.com/kaspanet/kaspad/domain/consensus/ruleerrors"
-	"github.com/kaspanet/kaspad/domain/consensus/utils/blockheader"
-	"github.com/kaspanet/kaspad/domain/consensus/utils/constants"
-	"github.com/kaspanet/kaspad/domain/consensus/utils/testutils"
-	"github.com/kaspanet/kaspad/util/mstime"
+	"github.com/coinexcom/kaspad/domain/consensus"
+	"github.com/coinexcom/kaspad/domain/consensus/model/externalapi"
+	"github.com/coinexcom/kaspad/domain/consensus/ruleerrors"
+	"github.com/coinexcom/kaspad/domain/consensus/utils/blockheader"
+	"github.com/coinexcom/kaspad/domain/consensus/utils/constants"
+	"github.com/coinexcom/kaspad/domain/consensus/utils/testutils"
+	"github.com/coinexcom/kaspad/util/mstime"
 	"github.com/pkg/errors"
 )
 

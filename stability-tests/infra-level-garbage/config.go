@@ -4,9 +4,9 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/kaspanet/kaspad/infrastructure/config"
-	"github.com/kaspanet/kaspad/infrastructure/logger"
-	"github.com/kaspanet/kaspad/stability-tests/common"
+	"github.com/coinexcom/kaspad/infrastructure/config"
+	"github.com/coinexcom/kaspad/infrastructure/logger"
+	"github.com/coinexcom/kaspad/stability-tests/common"
 
 	"github.com/jessevdk/go-flags"
 )

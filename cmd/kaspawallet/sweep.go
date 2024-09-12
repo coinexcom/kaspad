@@ -5,22 +5,19 @@ import (
 	"encoding/hex"
 	"fmt"
 
-	"github.com/kaspanet/go-secp256k1"
-	"github.com/kaspanet/kaspad/cmd/kaspawallet/daemon/client"
-	"github.com/kaspanet/kaspad/cmd/kaspawallet/daemon/pb"
-	"github.com/kaspanet/kaspad/cmd/kaspawallet/libkaspawallet"
-	"github.com/kaspanet/kaspad/cmd/kaspawallet/libkaspawallet/serialization"
-	"github.com/kaspanet/kaspad/cmd/kaspawallet/utils"
-	"github.com/kaspanet/kaspad/domain/consensus/model/externalapi"
-	"github.com/kaspanet/kaspad/domain/consensus/utils/consensushashing"
-	"github.com/kaspanet/kaspad/domain/consensus/utils/constants"
-	"github.com/kaspanet/kaspad/domain/consensus/utils/subnetworks"
-	"github.com/kaspanet/kaspad/domain/consensus/utils/txscript"
-	"github.com/kaspanet/kaspad/domain/consensus/utils/utxo"
-	"github.com/kaspanet/kaspad/domain/dagconfig"
-	"github.com/kaspanet/kaspad/domain/miningmanager/mempool"
-	"github.com/kaspanet/kaspad/util"
-	"github.com/kaspanet/kaspad/util/txmass"
+	"github.com/coinexcom/kaspad/cmd/kaspawallet/daemon/client"
+	"github.com/coinexcom/kaspad/cmd/kaspawallet/daemon/pb"
+	"github.com/coinexcom/kaspad/cmd/kaspawallet/libkaspawallet"
+	"github.com/coinexcom/kaspad/cmd/kaspawallet/utils"
+	"github.com/coinexcom/kaspad/domain/consensus/model/externalapi"
+	"github.com/coinexcom/kaspad/domain/consensus/utils/constants"
+	"github.com/coinexcom/kaspad/domain/consensus/utils/subnetworks"
+	"github.com/coinexcom/kaspad/domain/consensus/utils/txscript"
+	"github.com/coinexcom/kaspad/domain/consensus/utils/utxo"
+	"github.com/coinexcom/kaspad/domain/dagconfig"
+	"github.com/coinexcom/kaspad/domain/miningmanager/mempool"
+	"github.com/coinexcom/kaspad/util"
+	"github.com/coinexcom/kaspad/util/txmass"
 	"github.com/pkg/errors"
 )
 
@@ -213,30 +210,5 @@ func createSplitTransactionsWithSchnorrPrivteKey(
 }
 
 func signWithSchnorrPrivateKey(params *dagconfig.Params, privateKeyBytes []byte, domainTransactions []*externalapi.DomainTransaction) ([][]byte, error) {
-
-	schnorrkeyPair, err := secp256k1.DeserializeSchnorrPrivateKeyFromSlice(privateKeyBytes)
-	if err != nil {
-		return nil, err
-	}
-
-	serializedDomainTransactions := make([][]byte, len(domainTransactions))
-
-	for i1, domainTransaction := range domainTransactions {
-
-		sighashReusedValues := &consensushashing.SighashReusedValues{}
-
-		for i2, input := range domainTransaction.Inputs {
-			signature, err := txscript.SignatureScript(domainTransaction, i2, consensushashing.SigHashAll, schnorrkeyPair, sighashReusedValues)
-			if err != nil {
-				return nil, err
-			}
-			input.SignatureScript = signature
-		}
-		serializedDomainTransactions[i1], err = serialization.SerializeDomainTransaction(domainTransaction)
-		if err != nil {
-			return nil, err
-		}
-	}
-
-	return serializedDomainTransactions, nil
+	return nil, errors.New("fail")
 }

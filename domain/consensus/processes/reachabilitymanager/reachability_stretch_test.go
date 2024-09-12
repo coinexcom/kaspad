@@ -8,12 +8,12 @@ import (
 	"os"
 	"testing"
 
-	"github.com/kaspanet/kaspad/domain/consensus/model"
+	"github.com/coinexcom/kaspad/domain/consensus/model"
 
-	"github.com/kaspanet/kaspad/domain/consensus"
-	"github.com/kaspanet/kaspad/domain/consensus/model/externalapi"
-	"github.com/kaspanet/kaspad/domain/consensus/model/testapi"
-	"github.com/kaspanet/kaspad/domain/dagconfig"
+	"github.com/coinexcom/kaspad/domain/consensus"
+	"github.com/coinexcom/kaspad/domain/consensus/model/externalapi"
+	"github.com/coinexcom/kaspad/domain/consensus/model/testapi"
+	"github.com/coinexcom/kaspad/domain/dagconfig"
 	"github.com/pkg/errors"
 )
 

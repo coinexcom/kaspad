@@ -1,17 +1,16 @@
 package server
 
 import (
-	"github.com/kaspanet/go-secp256k1"
 	"github.com/pkg/errors"
 
-	"github.com/kaspanet/kaspad/cmd/kaspawallet/libkaspawallet"
-	"github.com/kaspanet/kaspad/cmd/kaspawallet/libkaspawallet/serialization"
-	"github.com/kaspanet/kaspad/domain/consensus/model/externalapi"
-	"github.com/kaspanet/kaspad/domain/consensus/utils/consensushashing"
-	"github.com/kaspanet/kaspad/domain/consensus/utils/constants"
-	"github.com/kaspanet/kaspad/domain/consensus/utils/utxo"
-	"github.com/kaspanet/kaspad/domain/miningmanager/mempool"
-	"github.com/kaspanet/kaspad/util"
+	"github.com/coinexcom/kaspad/cmd/kaspawallet/libkaspawallet"
+	"github.com/coinexcom/kaspad/cmd/kaspawallet/libkaspawallet/serialization"
+	"github.com/coinexcom/kaspad/domain/consensus/model/externalapi"
+	"github.com/coinexcom/kaspad/domain/consensus/utils/consensushashing"
+	"github.com/coinexcom/kaspad/domain/consensus/utils/constants"
+	"github.com/coinexcom/kaspad/domain/consensus/utils/utxo"
+	"github.com/coinexcom/kaspad/domain/miningmanager/mempool"
+	"github.com/coinexcom/kaspad/util"
 )
 
 // maybeAutoCompoundTransaction checks if a transaction's mass is higher that what is allowed for a standard
@@ -222,30 +221,7 @@ func (s *server) createSplitTransaction(transaction *serialization.PartiallySign
 }
 
 func (s *server) estimateMassAfterSignatures(transaction *serialization.PartiallySignedTransaction) (uint64, error) {
-	transaction = transaction.Clone()
-	var signatureSize uint64
-	if s.keysFile.ECDSA {
-		signatureSize = secp256k1.SerializedECDSASignatureSize
-	} else {
-		signatureSize = secp256k1.SerializedSchnorrSignatureSize
-	}
-
-	for i, input := range transaction.PartiallySignedInputs {
-		for j, pubKeyPair := range input.PubKeySignaturePairs {
-			if uint32(j) >= s.keysFile.MinimumSignatures {
-				break
-			}
-			pubKeyPair.Signature = make([]byte, signatureSize+1) // +1 for SigHashType
-		}
-		transaction.Tx.Inputs[i].SigOpCount = byte(len(input.PubKeySignaturePairs))
-	}
-
-	transactionWithSignatures, err := libkaspawallet.ExtractTransactionDeserialized(transaction, s.keysFile.ECDSA)
-	if err != nil {
-		return 0, err
-	}
-
-	return s.txMassCalculator.CalculateTransactionMass(transactionWithSignatures), nil
+	return 0, nil
 }
 
 func (s *server) moreUTXOsForMergeTransaction(alreadySelectedUTXOs []*libkaspawallet.UTXO, requiredAmount uint64) (

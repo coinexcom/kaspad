@@ -2,14 +2,14 @@ package headersselectedchainstore
 
 import (
 	"encoding/binary"
-	"github.com/kaspanet/kaspad/util/staging"
+	"github.com/coinexcom/kaspad/util/staging"
 
-	"github.com/kaspanet/kaspad/domain/consensus/database"
-	"github.com/kaspanet/kaspad/domain/consensus/database/binaryserialization"
-	"github.com/kaspanet/kaspad/domain/consensus/model"
-	"github.com/kaspanet/kaspad/domain/consensus/model/externalapi"
-	"github.com/kaspanet/kaspad/domain/consensus/utils/lrucache"
-	"github.com/kaspanet/kaspad/domain/consensus/utils/lrucacheuint64tohash"
+	"github.com/coinexcom/kaspad/domain/consensus/database"
+	"github.com/coinexcom/kaspad/domain/consensus/database/binaryserialization"
+	"github.com/coinexcom/kaspad/domain/consensus/model"
+	"github.com/coinexcom/kaspad/domain/consensus/model/externalapi"
+	"github.com/coinexcom/kaspad/domain/consensus/utils/lrucache"
+	"github.com/coinexcom/kaspad/domain/consensus/utils/lrucacheuint64tohash"
 	"github.com/pkg/errors"
 )
 

@@ -1,11 +1,11 @@
 package pow
 
 import (
-	"github.com/kaspanet/kaspad/domain/consensus/model/externalapi"
-	"github.com/kaspanet/kaspad/domain/consensus/utils/consensushashing"
-	"github.com/kaspanet/kaspad/domain/consensus/utils/hashes"
-	"github.com/kaspanet/kaspad/domain/consensus/utils/serialization"
-	"github.com/kaspanet/kaspad/util/difficulty"
+	"github.com/coinexcom/kaspad/domain/consensus/model/externalapi"
+	"github.com/coinexcom/kaspad/domain/consensus/utils/consensushashing"
+	"github.com/coinexcom/kaspad/domain/consensus/utils/hashes"
+	"github.com/coinexcom/kaspad/domain/consensus/utils/serialization"
+	"github.com/coinexcom/kaspad/util/difficulty"
 
 	"github.com/pkg/errors"
 	"math/big"

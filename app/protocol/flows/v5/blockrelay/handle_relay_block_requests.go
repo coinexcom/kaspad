@@ -1,11 +1,11 @@
 package blockrelay
 
 import (
-	"github.com/kaspanet/kaspad/app/appmessage"
-	peerpkg "github.com/kaspanet/kaspad/app/protocol/peer"
-	"github.com/kaspanet/kaspad/app/protocol/protocolerrors"
-	"github.com/kaspanet/kaspad/domain"
-	"github.com/kaspanet/kaspad/infrastructure/network/netadapter/router"
+	"github.com/coinexcom/kaspad/app/appmessage"
+	peerpkg "github.com/coinexcom/kaspad/app/protocol/peer"
+	"github.com/coinexcom/kaspad/app/protocol/protocolerrors"
+	"github.com/coinexcom/kaspad/domain"
+	"github.com/coinexcom/kaspad/infrastructure/network/netadapter/router"
 	"github.com/pkg/errors"
 )
 

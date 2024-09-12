@@ -5,10 +5,8 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/kaspanet/go-secp256k1"
-	"github.com/kaspanet/kaspad/cmd/kaspawallet/libkaspawallet/bip32"
-	"github.com/kaspanet/kaspad/domain/dagconfig"
-	"github.com/kaspanet/kaspad/util"
+	"github.com/coinexcom/kaspad/domain/dagconfig"
+	"github.com/coinexcom/kaspad/util"
 	"github.com/pkg/errors"
 )
 
@@ -22,57 +20,16 @@ func CreateKeyPair(ecdsa bool) ([]byte, []byte, error) {
 }
 
 func createKeyPair() ([]byte, []byte, error) {
-	keyPair, err := secp256k1.GenerateSchnorrKeyPair()
-	if err != nil {
-		return nil, nil, errors.Wrap(err, "Failed to generate private key")
-	}
-	publicKey, err := keyPair.SchnorrPublicKey()
-	if err != nil {
-		return nil, nil, errors.Wrap(err, "Failed to generate public key")
-	}
-	publicKeySerialized, err := publicKey.Serialize()
-	if err != nil {
-		return nil, nil, errors.Wrap(err, "Failed to serialize public key")
-	}
-
-	return keyPair.SerializePrivateKey()[:], publicKeySerialized[:], nil
+	return nil, nil, errors.New("Failed to generate private key")
 }
 
 func createKeyPairECDSA() ([]byte, []byte, error) {
-	keyPair, err := secp256k1.GenerateECDSAPrivateKey()
-	if err != nil {
-		return nil, nil, errors.Wrap(err, "Failed to generate private key")
-	}
-	publicKey, err := keyPair.ECDSAPublicKey()
-	if err != nil {
-		return nil, nil, errors.Wrap(err, "Failed to generate public key")
-	}
-	publicKeySerialized, err := publicKey.Serialize()
-	if err != nil {
-		return nil, nil, errors.Wrap(err, "Failed to serialize public key")
-	}
-
-	return keyPair.Serialize()[:], publicKeySerialized[:], nil
+	return nil, nil, errors.New("Failed to generate private key")
 }
 
 // PublicKeyFromPrivateKey returns the public key associated with a private key
 func PublicKeyFromPrivateKey(privateKeyBytes []byte) ([]byte, error) {
-	keyPair, err := secp256k1.DeserializeSchnorrPrivateKeyFromSlice(privateKeyBytes)
-	if err != nil {
-		return nil, errors.Wrap(err, "Failed to deserialize private key")
-	}
-
-	publicKey, err := keyPair.SchnorrPublicKey()
-	if err != nil {
-		return nil, errors.Wrap(err, "Failed to generate public key")
-	}
-
-	publicKeySerialized, err := publicKey.Serialize()
-	if err != nil {
-		return nil, errors.Wrap(err, "Failed to serialize public key")
-	}
-
-	return publicKeySerialized[:], nil
+	return nil, errors.New("Failed to generate private key")
 }
 
 // Address returns the address associated with the given public keys and minimum signatures parameters.
@@ -96,40 +53,7 @@ func Address(params *dagconfig.Params, extendedPublicKeys []string, minimumSigna
 }
 
 func p2pkAddress(params *dagconfig.Params, extendedPublicKey string, path string, ecdsa bool) (util.Address, error) {
-	extendedKey, err := bip32.DeserializeExtendedKey(extendedPublicKey)
-	if err != nil {
-		return nil, err
-	}
-
-	derivedKey, err := extendedKey.DeriveFromPath(path)
-	if err != nil {
-		return nil, err
-	}
-
-	publicKey, err := derivedKey.PublicKey()
-	if err != nil {
-		return nil, err
-	}
-
-	if ecdsa {
-		serializedECDSAPublicKey, err := publicKey.Serialize()
-		if err != nil {
-			return nil, err
-		}
-		return util.NewAddressPublicKeyECDSA(serializedECDSAPublicKey[:], params.Prefix)
-	}
-
-	schnorrPublicKey, err := publicKey.ToSchnorr()
-	if err != nil {
-		return nil, err
-	}
-
-	serializedSchnorrPublicKey, err := schnorrPublicKey.Serialize()
-	if err != nil {
-		return nil, err
-	}
-
-	return util.NewAddressPublicKey(serializedSchnorrPublicKey[:], params.Prefix)
+	return nil, errors.New("fail")
 }
 
 func sortPublicKeys(extendedPublicKeys []string) {

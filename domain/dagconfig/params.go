@@ -8,15 +8,24 @@ import (
 	"math/big"
 	"time"
 
-	"github.com/kaspanet/kaspad/domain/consensus/model/externalapi"
+	"github.com/coinexcom/kaspad/domain/consensus/model/externalapi"
 
-	"github.com/kaspanet/kaspad/app/appmessage"
-	"github.com/kaspanet/kaspad/util/network"
+	"github.com/coinexcom/kaspad/app/appmessage"
+	"github.com/coinexcom/kaspad/util/network"
 
 	"github.com/pkg/errors"
 
-	"github.com/kaspanet/kaspad/util"
+	"github.com/coinexcom/kaspad/util"
 )
+
+const HashSize = 32
+
+// Hash is a type encapsulating the result of hashing some unknown sized data.
+// it typically represents Blake2b.
+type Hash [HashSize]byte
+
+// EmptyMuHashHash is the hash of `NewMuHash().Finalize()`
+var EmptyMuHashHash = Hash{0x54, 0x4e, 0xb3, 0x14, 0x2c, 0x0, 0xf, 0xa, 0xd2, 0xc7, 0x6a, 0xc4, 0x1f, 0x42, 0x22, 0xab, 0xba, 0xba, 0xbe, 0xd8, 0x30, 0xee, 0xaf, 0xee, 0x4b, 0x6d, 0xc5, 0x6b, 0x52, 0xd5, 0xca, 0xc0}
 
 // These variables are the DAG proof-of-work limit parameters for each default
 // network.
@@ -175,7 +184,7 @@ type Params struct {
 	// CoinbasePayloadScriptPublicKeyMaxLength is the maximum allowed script public key in the coinbase's payload
 	CoinbasePayloadScriptPublicKeyMaxLength uint8
 
-	// PruningProofM is the 'm' constant in the pruning proof. For more details see: https://github.com/kaspanet/research/issues/3
+	// PruningProofM is the 'm' constant in the pruning proof. For more details see: https://github.com/coinexcom/research/issues/3
 	PruningProofM uint64
 
 	// DeflationaryPhaseDaaScore is the DAA score after which the monetary policy switches
@@ -525,4 +534,9 @@ func init() {
 	mustRegister(&TestnetParams)
 	mustRegister(&SimnetParams)
 	mustRegister(&DevnetParams)
+}
+
+// AsArray is a helper function to returns a pointer to the underlying byte array.
+func (hash *Hash) AsArray() *[32]byte {
+	return (*[32]byte)(hash)
 }

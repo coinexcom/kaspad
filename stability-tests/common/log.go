@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/kaspanet/kaspad/infrastructure/logger"
-	"github.com/kaspanet/kaspad/stability-tests/common/mine"
-	"github.com/kaspanet/kaspad/stability-tests/common/rpc"
-	"github.com/kaspanet/kaspad/util/panics"
+	"github.com/coinexcom/kaspad/infrastructure/logger"
+	"github.com/coinexcom/kaspad/stability-tests/common/mine"
+	"github.com/coinexcom/kaspad/stability-tests/common/rpc"
+	"github.com/coinexcom/kaspad/util/panics"
 )
 
 // log is a logger that is initialized with no output filters. This

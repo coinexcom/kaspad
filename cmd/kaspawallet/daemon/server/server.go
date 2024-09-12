@@ -8,20 +8,20 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/kaspanet/kaspad/version"
+	"github.com/coinexcom/kaspad/version"
 
-	"github.com/kaspanet/kaspad/domain/consensus/model/externalapi"
+	"github.com/coinexcom/kaspad/domain/consensus/model/externalapi"
 
-	"github.com/kaspanet/kaspad/util/txmass"
+	"github.com/coinexcom/kaspad/util/txmass"
 
-	"github.com/kaspanet/kaspad/util/profiling"
+	"github.com/coinexcom/kaspad/util/profiling"
 
-	"github.com/kaspanet/kaspad/cmd/kaspawallet/daemon/pb"
-	"github.com/kaspanet/kaspad/cmd/kaspawallet/keys"
-	"github.com/kaspanet/kaspad/domain/dagconfig"
-	"github.com/kaspanet/kaspad/infrastructure/network/rpcclient"
-	"github.com/kaspanet/kaspad/infrastructure/os/signal"
-	"github.com/kaspanet/kaspad/util/panics"
+	"github.com/coinexcom/kaspad/cmd/kaspawallet/daemon/pb"
+	"github.com/coinexcom/kaspad/cmd/kaspawallet/keys"
+	"github.com/coinexcom/kaspad/domain/dagconfig"
+	"github.com/coinexcom/kaspad/infrastructure/network/rpcclient"
+	"github.com/coinexcom/kaspad/infrastructure/os/signal"
+	"github.com/coinexcom/kaspad/util/panics"
 	"github.com/pkg/errors"
 
 	"google.golang.org/grpc"

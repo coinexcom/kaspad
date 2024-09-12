@@ -5,11 +5,10 @@
 package dagconfig
 
 import (
-	"github.com/kaspanet/go-muhash"
-	"github.com/kaspanet/kaspad/domain/consensus/model/externalapi"
-	"github.com/kaspanet/kaspad/domain/consensus/utils/blockheader"
-	"github.com/kaspanet/kaspad/domain/consensus/utils/subnetworks"
-	"github.com/kaspanet/kaspad/domain/consensus/utils/transactionhelper"
+	"github.com/coinexcom/kaspad/domain/consensus/model/externalapi"
+	"github.com/coinexcom/kaspad/domain/consensus/utils/blockheader"
+	"github.com/coinexcom/kaspad/domain/consensus/utils/subnetworks"
+	"github.com/coinexcom/kaspad/domain/consensus/utils/transactionhelper"
 	"math/big"
 )
 
@@ -125,7 +124,7 @@ var devnetGenesisBlock = externalapi.DomainBlock{
 		[]externalapi.BlockLevelParents{},
 		devnetGenesisMerkleRoot,
 		&externalapi.DomainHash{},
-		externalapi.NewDomainHashFromByteArray(muhash.EmptyMuHashHash.AsArray()),
+		externalapi.NewDomainHashFromByteArray(EmptyMuHashHash.AsArray()),
 		0x11e9db49828,
 		525264379,
 		0x48e5e,
@@ -179,7 +178,7 @@ var simnetGenesisBlock = externalapi.DomainBlock{
 		[]externalapi.BlockLevelParents{},
 		simnetGenesisMerkleRoot,
 		&externalapi.DomainHash{},
-		externalapi.NewDomainHashFromByteArray(muhash.EmptyMuHashHash.AsArray()),
+		externalapi.NewDomainHashFromByteArray(EmptyMuHashHash.AsArray()),
 		0x17c5f62fbb6,
 		0x207fffff,
 		0x2,
@@ -233,7 +232,7 @@ var testnetGenesisBlock = externalapi.DomainBlock{
 		[]externalapi.BlockLevelParents{},
 		testnetGenesisMerkleRoot,
 		&externalapi.DomainHash{},
-		externalapi.NewDomainHashFromByteArray(muhash.EmptyMuHashHash.AsArray()),
+		externalapi.NewDomainHashFromByteArray(EmptyMuHashHash.AsArray()),
 		0x17c5f62fbb6,
 		0x1e7fffff,
 		0x14582,
